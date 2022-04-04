@@ -4,6 +4,6 @@ Dev10 Python Excercises
 This repository contains class exercises using Python. 
 
 Current Commits include: 
-- M06 | Python Variables
-- M06 | String Manipulation
+- Python Variables > 04E-variables.ipynb
+- String Manipulation > 
 
