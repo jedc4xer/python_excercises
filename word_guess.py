@@ -3,6 +3,7 @@ import random
 import string
 import os
 import time
+from collections import Counter
 
 # Clean the screen
 os.system("cls")
@@ -102,6 +103,7 @@ def display_guess_status(random_word, guesses, clean_screen):
     print("\n", "######## WORD GUESSING GAME ########")
     print("\n    ", display_string, guess_status)
 
+
 # ************ End Declared Functions *******************
 
 random_word = pick_random_word()
@@ -109,15 +111,17 @@ random_word = pick_random_word()
 # Assign Primary Variables
 available_guesses = 7
 game_won_printout = "Congratulations! You got it correct!"
-game_lost_printout = "Sorry! You have lost the game this time.\n\n Better luck next time!!"
+game_lost_printout = (
+    "Sorry! You have lost the game this time.\n\n Better luck next time!!"
+)
 guess_result = ""
-guess_count = 0
 
 # Set first-run rule
 clean_screen = False
 
 # Create list for guesses (does not need to be a set)
 guesses = []
+all_guesses = []
 
 # Game Loop
 game_over = False
@@ -127,8 +131,8 @@ while not game_over:
     print(f"You have {available_guesses} attempts left.")
     clean_screen = "clean"
     cleaned_guess = collect_guess()
-    guess_count += 1
-    
+    all_guesses.append(cleaned_guess)
+
     # Logic if the length of the guess is more than a single letter
     if len(cleaned_guess) >= 2:
         if cleaned_guess == random_word.lower():
@@ -145,28 +149,30 @@ while not game_over:
                 print(game_lost_printout)
                 game_over = True
                 status = "LOSER "
-                
+
     # Logic if the length of the guess indicates a single letter
     else:
-        
+
         # Logic if the single letter is in the word
         if cleaned_guess in random_word.lower():
             if cleaned_guess in guesses:
-                guess_result = (
-                    "Oops, while that letter is an option... You already picked it!!"
-                )
+                guess_result = "Oops, while that letter is an option... You already picked it!!"
             else:
                 guess_result = f"Congratulations! You found a match. You have {available_guesses} guesses remaining."
             guesses.append(cleaned_guess)
+            cntr = 0
             for letter in random_word.lower():
                 if letter not in guesses:
                     game_over = False
                     break
                 else:
-                    guess_result = game_won_printout
-                    game_over = True
-                    status = "WINNER "
+                    cntr += 1
                     
+            if cntr == len(random_word):
+                guess_result = game_won_printout
+                game_over = True
+                status = "WINNER "
+
         # Logic if the single letter is not in the word
         else:
             if available_guesses == 1:
@@ -178,10 +184,19 @@ while not game_over:
                 available_guesses -= 1
                 tries_term = "try" if available_guesses == 1 else "tries"
                 guess_result = f"Sorry! You did not choose a correct letter. You have {available_guesses} {tries_term} left."
-                
+
 # Flood the Screen and display results
-# TO INCLUDE - Accuracy Counter
 print(status * 100000)
 display_guess_status(random_word, guesses, clean_screen="game_over")
 
-print(f"\n{status * 3}\nThe mystery word was {random_word.capitalize()} and your accuracy was {round(len(guesses)/guess_count,2) * 100}%\n{status * 3}\n")
+print(
+    f"\n   {status * 3}\nThe mystery word was {random_word.capitalize()} and your accuracy was {round((len(guesses)/len(all_guesses)) * 100, 2)}%\n   {status * 3}\n"
+)
+
+# Display guess summary
+guess_counts = dict(Counter(all_guesses))
+guess_counts = [" " + key + ": " + str(guess_counts[key]) for key in guess_counts.keys()]
+guess_counts.sort(key = lambda x: x.split(": ")[1], reverse = True)
+guess_counts = "\n".join(guess_counts)
+print(f'\n\nYour Guesses: \n{guess_counts}')
+print('\n\n****** THANKS FOR PLAYING ******')
