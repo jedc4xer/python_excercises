@@ -111,6 +111,7 @@ available_guesses = 7
 game_won_printout = "Congratulations! You got it correct!"
 game_lost_printout = "Sorry! You have lost the game this time.\n\n Better luck next time!!"
 guess_result = ""
+guess_count = 0
 
 # Set first-run rule
 clean_screen = False
@@ -126,6 +127,7 @@ while not game_over:
     print(f"You have {available_guesses} attempts left.")
     clean_screen = "clean"
     cleaned_guess = collect_guess()
+    guess_count += 1
     
     # Logic if the length of the guess is more than a single letter
     if len(cleaned_guess) >= 2:
@@ -182,4 +184,4 @@ while not game_over:
 print(status * 100000)
 display_guess_status(random_word, guesses, clean_screen="game_over")
 
-print(f"\n{status * 3}\nThe mystery word was {random_word.capitalize()}\n{status * 3}\n")
+print(f"\n{status * 3}\nThe mystery word was {random_word.capitalize()} and your accuracy was {round(len(guesses)/guess_count,2) * 100}%\n{status * 3}\n")
