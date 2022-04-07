@@ -33,26 +33,27 @@ def get_statements():
     return statements
 
 def main_menu(num_slots):
-    os.system(clear_term)
-    print(statements[1])
-    print(f"      There are {num_slots} participant slots ready for signups.")
-    print(statements[2])
-    
-    
-    passed = False
-    while not passed:
-        menu_option = input("Please choose a task: >> ")
-        passed = check_input(menu_option,'number',5)
-    if menu_option == 1:
-        sign_up_menu()
-    elif menu_option == 2:
-        deregister_menu()
-    elif menu_option == 3:
-        view_participants()
-    elif menu_option == 4:
-        save_menu()
-    elif menu_option == 5:
-        exit_menu()
+    outer_passed = False
+    while not outer_passed:
+        os.system(clear_term)
+        print(statements[1])
+        print(f"      There are {num_slots} participant slots ready for signups.")
+        print(statements[2])
+
+        passed = False
+        while not passed:
+            menu_option = input("      Please choose a task: >> ")
+            passed = check_input(menu_option,'number',5)
+        if menu_option == 1:
+            sign_up_menu()
+        elif menu_option == 2:
+            deregister_menu()
+        elif menu_option == 3:
+            view_participants()
+        elif menu_option == 4:
+            save_menu()
+        elif menu_option == 5:
+            outer_passed, passed = exit_menu()
     
 def sign_up_menu():
     os.system(clear_term)
@@ -73,6 +74,13 @@ def save_menu():
 def exit_menu():
     os.system(clear_term)
     print(statements[7])
+    if len(unsaved_changes) > 1:
+        print("      Any unsaved changes will be lost.")
+    confirm = input("      Are you sure you want to exit? [y/n] >> ")
+    if confirm.lower() == 'y':
+        print(statements[8])
+        #raise SystemExit
+        return True, True
     
 statements = get_statements()
 print(statements[0])
