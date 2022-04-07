@@ -6,7 +6,11 @@ clear_term = 'cls||clear'
 os.system(clear_term)
 
 def get_statements():
+    path = 'https://raw.githubusercontent.com/jedc4xer/python_exercises/main/tournament_statements.txt'
     statements = requests.get(path).text.split(",")
+    return statements
+
+statements = get_statements()
 print(statements[0])
 
 # Control Access
