@@ -33,19 +33,24 @@ def get_statements():
     return statements
 
 def main_menu(num_slots):
+    registrations = {slot: None for slot in range(1, num_slots + 1)}
+    available_slots = num_slots
     outer_passed = False
     while not outer_passed:
+        available_slots = num_slots - len([_ for _ in registrations.values() if _ != None])
         os.system(clear_term)
         print(statements[1])
-        print(f"      There are {num_slots} participant slots ready for signups.")
+        print(f"      There are {available_slots} participant slots available.")
         print(statements[2])
 
         passed = False
         while not passed:
+            print(registrations)
             menu_option = input("      Please choose a task: >> ")
             passed = check_input(menu_option,'number',5)
+            menu_option = int(menu_option)
         if menu_option == 1:
-            sign_up_menu()
+            registrations = sign_up_menu(registrations)
         elif menu_option == 2:
             deregister_menu()
         elif menu_option == 3:
@@ -53,11 +58,31 @@ def main_menu(num_slots):
         elif menu_option == 4:
             save_menu()
         elif menu_option == 5:
-            outer_passed, passed = exit_menu()
+            outer_passed = exit_menu(False)
     
-def sign_up_menu():
+def sign_up_menu(registrations):
     os.system(clear_term)
     print(statements[3])
+    name_picked = False
+    passed = False
+    while not passed:
+        if not name_picked:
+            name = input("      Participant Name: >> ")
+            passed = check_input(name,'string',None)
+            name_picked = True
+            
+        if name_picked:    
+            desired_slot = input("      Desired Starting Slot: >> ")
+            passed = check_input(desired_slot,'number',len(registrations))
+        if passed:
+            desired_slot = int(desired_slot)
+            if registrations[desired_slot] != None:
+                print(f'      Slot #{desired_slot} is filled. Please try again')
+                passed = False
+            else:
+                registrations[desired_slot] = name.title()
+    print(f'      {name.title()} is signed up in starting slot #{desired_slot}')
+    return registrations                 
     
 def deregister_menu():
     os.system(clear_term)
@@ -71,16 +96,16 @@ def save_menu():
     os.system(clear_term)
     print(statements[6])
     
-def exit_menu():
+def exit_menu(unsaved_changes):
     os.system(clear_term)
     print(statements[7])
-    if len(unsaved_changes) > 1:
+    if unsaved_changes:
         print("      Any unsaved changes will be lost.")
     confirm = input("      Are you sure you want to exit? [y/n] >> ")
     if confirm.lower() == 'y':
         print(statements[8])
         #raise SystemExit
-        return True, True
+        return True
     
 statements = get_statements()
 print(statements[0])
@@ -95,5 +120,6 @@ passed = False
 while not passed:
     num_slots = input("\n      Enter the number of participants: >> ")
     passed = check_input(num_slots,'number',100000000)
+    num_slots = int(num_slots)
 
 main_menu(num_slots)
