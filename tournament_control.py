@@ -14,8 +14,8 @@ statements = get_statements()
 print(statements[0])
 
 # Control Access
-input("User Name: >> ")
-input(" Password: >> ")
+input("      User Name: >> ")
+input("       Password: >> ")
 
 # Collect # of Participants
 passed = False
@@ -27,4 +27,5 @@ while not passed:
     except:
         print('You must enter a valid number. Please try again')
 
-print(f"There are {num_slots} participant slots ready for signups.")
+print(f"\nThere are {num_slots} participant slots ready for signups.")
+print(statements[1])
