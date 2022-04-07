@@ -84,7 +84,7 @@ def sign_up_menu(registrations):
     print(f'      {name.title()} is signed up in starting slot #{desired_slot}')
     return registrations                 
     
-def deregister_menu():
+def deregister_menu(registrations):
     os.system(clear_term)
     print(statements[4])
     
