@@ -5,13 +5,14 @@ import time
 from collections import Counter
 
 # Clean the screen
-os.system("cls")
+clear_term = 'cls||clear'
+os.system(clear_term)
 
 # Program Initialization
 def initialize():
     # Provide a mock option, then populate and display choice
     input("Choose a difficulty. (easy, medium, hard) >> ")
-    os.system("cls")
+    os.system(clear_term)
     print("Choose a difficulty. (easy, medium, hard) >> extreme")
     print("Extreme Difficulty Chosen\n")
     print(
@@ -79,7 +80,7 @@ def display_guess_status(random_word, guesses, clean_screen):
     guessed_string = ""
     for char in random_word:
         if clean_screen == "clean":
-            os.system("cls")
+            os.system(clear_term)
             guessed_string += char if char in guesses else "_"
             display_string = guessed_string + "*" * (
                 len(random_word) - len(guessed_string)
@@ -99,7 +100,7 @@ def display_guess_status(random_word, guesses, clean_screen):
         print("\n    ", display_string)
         time.sleep(0.2)
     if clean_screen:
-        os.system("cls")
+        os.system(clear_term)
     
     guess_status = f"  |  {len(''.join(_ for _ in random_word if _ in guesses))} out of {len(random_word)} characters guessed."
     print("\n", "######## WORD GUESSING GAME ########")
@@ -111,7 +112,7 @@ def display_snowman(picked_snowman):
         for man in snowman:
             print(man)
             time.sleep(1.5)
-            os.system('cls')
+            os.system(clear_term)
     else:
         picked_snowman = 7-picked_snowman
         print(snowman[picked_snowman])
@@ -152,7 +153,7 @@ def gameplay():
         # Logic if the length of the guess is more than a single letter
         if len(cleaned_guess) >= 2:
             if cleaned_guess == random_word.lower():
-                os.system("cls")
+                os.system(clear_term)
                 print(game_won_printout)
                 game_over = True
                 status = "WINNER "
@@ -161,7 +162,7 @@ def gameplay():
                     available_guesses -= 2
                     guess_result = f"Oops!!! You did not get that correct. You just lost 2 guesses and have {available_guesses} remaining."
                 else:
-                    os.system("cls")
+                    os.system(clear_term)
                     print(game_lost_printout)
                     game_over = True
                     status = "LOSER "
@@ -192,7 +193,7 @@ def gameplay():
             # Logic if the single letter is not in the word
             else:
                 if available_guesses == 1:
-                    os.system("cls")
+                    os.system(clear_term)
                     print(game_lost_printout)
                     game_over = True
                     status = "LOSER "
