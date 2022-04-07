@@ -6,7 +6,6 @@
       |                 MAIN MENU                  |
       ==============================================    
 ,
-
       1. Sign Up
       2. Cancel Sign Up
       3. View Participants

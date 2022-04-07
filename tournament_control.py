@@ -6,13 +6,14 @@ import string
 clear_term = 'cls||clear'
 os.system(clear_term)
 
-def check_input(input_string, requirement = 'string',limit):
+def check_input(input_string, requirement, limit):
     if requirement == 'number':
         try:
             input_string = int(input_string)
             if input_string in range(1,limit + 1):
                 passed = True
             else:
+                print('      The number you have entered is unrealistic. Please try again')
                 passed = False
         except:
             print('      You must enter a valid number. Please try again')
@@ -84,6 +85,6 @@ os.system(clear_term)
 passed = False
 while not passed:
     num_slots = input("\n      Enter the number of participants: >> ")
-    passed = check_input(num_slots,'number',100^100)
+    passed = check_input(num_slots,'number',100000000)
 
 main_menu(num_slots)
