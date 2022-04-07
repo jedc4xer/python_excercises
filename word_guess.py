@@ -1,6 +1,5 @@
 import requests
 import random
-import string
 import os
 import time
 from collections import Counter
@@ -54,7 +53,7 @@ def collect_guess():
             quit()
 
         # Clean guess for program usage
-        cleaned_guess = "".join(_ for _ in guess if _ in string.ascii_letters)
+        cleaned_guess = "".join(_ for _ in guess if _.isalpha())
 
         # Check for validity and catch errors
         try:
