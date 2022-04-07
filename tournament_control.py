@@ -35,8 +35,9 @@ def get_statements():
 def main_menu(num_slots):
     os.system(clear_term)
     print(statements[1])
+    print(f"      There are {num_slots} participant slots ready for signups.")
     print(statements[2])
-    print(f"      There are {num_slots} participant slots ready for signups.\n")
+    
     
     passed = False
     while not passed:

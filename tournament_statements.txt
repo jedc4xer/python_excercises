@@ -5,8 +5,7 @@
       ************* Tournament Manager *************
       |                 MAIN MENU                  |
       ==============================================    
-,
-      1. Sign Up
+,      1. Sign Up
       2. Cancel Sign Up
       3. View Participants
       4. Save Changes
