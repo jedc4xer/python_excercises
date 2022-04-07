@@ -26,3 +26,183 @@
          WWWW              WWWW        
            WWWWWWWWWWWWWWWWWWW          
              WWWWWWWWWWWWWWW           
+             
+,
+                  wwwww                 
+                wwwwwwww               
+               wwwwwwwwww              
+              W  wwwwww   W            
+             W             W            
+             W              W           
+          WW      ww  ww     WW        
+          WW                 WW       
+            W       ww      W           
+            W     n    n    W           
+   WOOW     W      w  w    W    WOOW   
+   W   W     W      ww     W   W    W  
+   W    W W W               W W    W   
+     W                           W      
+        W           w          W        
+         W                   W         
+          W         w        W         
+          W                  W          
+          W         w        W          
+          W                  W         
+         W          w         W        
+        W                      W       
+       W  * * * * * * * * * *   W      
+        WW                     WW       
+        WWWW                WWWW       
+     WWWWWWWW wwwwwwwwwwww WWWWWWWWW   
+     WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW    
+     WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW   
+        
+,
+                                        
+                wwwwwwww               
+               wwwwwwwwww              
+              W  wwwwww   W            
+             W             W            
+             W              W           
+          WW                 WW        
+          WW       w  w      WW       
+            W       ww      W           
+            W               W           
+   wwww     W      w  w    W    wwww  
+   w   w     w      ww     W    w   w  
+   w    w w w               w w    w   
+     w                           w      
+        W                      W        
+         W          w        W         
+          W                  W         
+          W         w        W          
+          W                  W          
+          W         w        W         
+         W                    W        
+        W           w          W       
+       W                        W      
+        WW  * * * * * * * * *  WW       
+     wwwWWWW                WWWWwww    
+     WWWWWWWW wwwwwwwwwwww WWWWWWWWW   
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww 
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww
+  
+,
+                                        
+                                       
+                                       
+                 wwwwww                
+             w    wwww     w            
+             w              w           
+          ww                 ww       
+          ww                 ww       
+            W     w    w    W           
+            W       ww      W           
+            W              W          
+   w   w     w             W    w   w  
+   w    w w w       ss      w w    w   
+     w                           w      
+        s                      sss      
+       sss                   s s       
+         ss         s        W         
+          s                  W          
+          W         s        W          
+          W                  W         
+         W          s         W        
+        W                      W       
+       W            s           W      
+        WW  *   *   *   *   *  WW       
+  wwwwwwWWWW                WWWWwwwwww 
+  wwwWWWWWWWW wwwwwwwwwwww WWWWWWWWWwww
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww 
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww
+  
+,
+                                        
+                                       
+                                       
+                                       
+                                 
+             w   wwwwww     w           
+           w                 w        
+          ww                 ww       
+            W               W           
+            W    w    w     W           
+            W             W          
+             w     ww      W           
+   w    w w w               w w    w   
+     w                           w      
+        s                      sss      
+    w    s                   s         
+          w         s        w     w   
+          s                  w          
+      w   W         s        W  w       
+          W                  W     w   
+     w   W          s         W        
+        W                      W       
+       W            s           W      
+  wwwwwwWW  *   *   *   *   *  WWwwww   
+  wwwwwwWWWWwwwwwwwwwwwwwwwwWWWWwwwwww 
+  wwwWWWWWWWW wwwwwwwwwwww WWWWWWWWWwww
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww 
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww
+  
+,
+                                        
+                                       
+                                       
+                                       
+                                 
+                                        
+                                      
+                                      
+                                        
+            W    w    w     W           
+            W             W          
+             w     ww      W           
+            w               w          
+                                        
+                                        
+                             s         
+          w         s        w         
+          s                  w          
+          W         s        W          
+          www              www         
+         www        s       wwW        
+        wwwww             wwwwwW       
+       wwwwwwwwwwwwwwwwwwwwwwww W      
+  wwwwwwWWwwwwwwwwwwwwwwwwwwwwwwWwwww   
+  wwwwwwWWWWwwwwwwwwwwwwwwwwWWWWwwwwww 
+  wwwWWWWWWWW wwwwwwwwwwww WWWWWWWWWwww
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww 
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww
+  
+,
+                                        
+                                       
+                                       
+                                       
+                                 
+                                        
+                                      
+                                      
+                                        
+                                        
+                                     
+                                       
+                                       
+                                        
+                                        
+                                       
+                                       
+                                        
+               wwwwwwww                 
+           wwwwwwwwwwwwwwwww           
+       wwwwwwwwwwwwwwwwwwwwwwww        
+      wwwwwwwwwwwwwwwwwwwwwwwwwww      
+     wwwwwwwwwwwwwwwwwwwwwwwwwwwww     
+  wwwwwwWWwwwwwwwwwwwwwwwwwwwwwwWwwww   
+  wwwwwwWWWWwwwwwwwwwwwwwwwwWWWWwwwwww 
+  wwwWWWWWWWW wwwwwwwwwwww WWWWWWWWWwww
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww 
+  wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwww
