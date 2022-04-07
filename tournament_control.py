@@ -6,6 +6,18 @@ import string
 clear_term = 'cls||clear'
 os.system(clear_term)
 
+def get_statements():
+    path = 'https://raw.githubusercontent.com/jedc4xer/python_exercises/main/tournament_statements.txt'
+    statements = requests.get(path).text.split(",")
+    return statements
+
+def get_tournament_info():
+    print(statements[9])
+    passed = False
+    while not passed:
+        task = input('      Choose an option: >> ')
+        if check_input(task, 'number', 2):
+        
 def check_input(input_string, requirement, limit):
     if requirement == 'number':
         if input_string.isnumeric():
@@ -26,11 +38,6 @@ def check_input(input_string, requirement, limit):
             passed = False
     return passed
         
-def get_statements():
-    path = 'https://raw.githubusercontent.com/jedc4xer/python_exercises/main/tournament_statements.txt'
-    statements = requests.get(path).text.split(",")
-    return statements
-
 def main_menu(num_slots):
     registrations = {slot: None for slot in range(1, num_slots + 1)}
     available_slots = num_slots
@@ -110,9 +117,15 @@ def view_participants():
     os.system(clear_term)
     print(statements[5])
     
-def save_menu():
+def save_menu(registrations,tournament):
     os.system(clear_term)
     print(statements[6])
+    to_write = [str(key) + "," + registrations[key] for key in registrations.keys()]
+    with open(f"{tournament}_registrations.csv", 'w') as file:
+        file.write("\n".join(to_write))
+        file.close()
+    saved = True
+    return saved
     
 def exit_menu(unsaved_changes):
     os.system(clear_term)
