@@ -8,14 +8,13 @@ os.system(clear_term)
 
 def check_input(input_string, requirement, limit):
     if requirement == 'number':
-        try:
-            input_string = int(input_string)
-            if input_string in range(1,limit + 1):
+        if input_string.isnumeric():
+            if int(input_string) in range(1,limit + 1):
                 passed = True
             else:
                 print('      The number you have entered is unrealistic. Please try again')
                 passed = False
-        except:
+        else:
             print('      You must enter a valid number. Please try again')
             passed = False
     else:
@@ -40,7 +39,7 @@ def main_menu(num_slots):
         available_slots = num_slots - len([_ for _ in registrations.values() if _ != None])
         os.system(clear_term)
         print(statements[1])
-        print(f"      There are {available_slots} participant slots available.")
+        print(f"      Available Slots: {available_slots}\n      Filled Slots: {num_slots - available_slots}\n")
         print(statements[2])
 
         passed = False
@@ -48,11 +47,11 @@ def main_menu(num_slots):
             print(registrations)
             menu_option = input("      Please choose a task: >> ")
             passed = check_input(menu_option,'number',5)
-            menu_option = int(menu_option)
+        menu_option = int(menu_option)
         if menu_option == 1:
             registrations = sign_up_menu(registrations)
         elif menu_option == 2:
-            deregister_menu()
+            registrations = deregister_menu(registrations)
         elif menu_option == 3:
             view_participants()
         elif menu_option == 4:
@@ -72,7 +71,7 @@ def sign_up_menu(registrations):
             name_picked = True
             
         if name_picked:    
-            desired_slot = input("      Desired Starting Slot: >> ")
+            desired_slot = input(f"      Desired Starting Slot [1-{len(registrations)}]: >> ")
             passed = check_input(desired_slot,'number',len(registrations))
         if passed:
             desired_slot = int(desired_slot)
@@ -87,7 +86,26 @@ def sign_up_menu(registrations):
 def deregister_menu(registrations):
     os.system(clear_term)
     print(statements[4])
-    
+    passed = False
+    while not passed:
+        current_slot = input(f"      Current Slot [1-{len(registrations)}]: >> ")
+        name = input("      Participant Name: >> ")
+        passed = check_input(current_slot,'number',len(registrations))
+        if passed:
+            current_slot = int(current_slot)
+            if registrations[current_slot] == name.title():
+                registrations.update({current_slot: None})
+                print('\n      Success:')
+                print(f'      {name.title()} has been cancelled from slot {current_slot}.')
+                go_again = '\n      Would you like to cancel another participant? (y/n) >> '
+                passed = False if input(go_again).lower() == 'y' else True
+            else:
+                print('\n      Error:')
+                print(f'      {name.title()} is not in that starting slot.\n')
+                passed = False
+                
+    return registrations
+                
 def view_participants():
     os.system(clear_term)
     print(statements[5])

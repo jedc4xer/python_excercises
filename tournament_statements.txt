@@ -16,7 +16,7 @@
       ==============================================    
 ,
       ************* Tournament Manager *************
-      |        MAIN MENU  -->  Cancel Sign Up      |
+      |     MAIN MENU  -->  Cancel Registration    |
       ==============================================
 ,
       ************* Tournament Manager *************
