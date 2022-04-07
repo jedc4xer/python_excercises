@@ -20,7 +20,7 @@ input("       Password: >> ")
 # Collect # of Participants
 passed = False
 while not passed:
-    num_slots = input("Enter the number of participants: >> ")
+    num_slots = input("\n      Enter the number of participants: >> ")
     try:
         num_slots = int(num_slots)
         passed = True
