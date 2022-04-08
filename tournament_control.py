@@ -56,7 +56,7 @@ def get_tournament_info():
         while not passed:
             picked_file = input("      Choose which file to load: >> ")
             passed = check_input(picked_file, "number", len(possible_files))
-        file_path = possible_files[int(picked_file)]
+        file_path = possible_files[int(picked_file) - 1]
 
         with open(f"{file_path}", "r") as file:
             data = file.read().split("\n")
@@ -65,7 +65,10 @@ def get_tournament_info():
         new_data = [_.split(",") for _ in data][1:]
         registrations = {}
         for i, item in enumerate(new_data):
-            registrations[int(item[0])] = {"First Name": item[1], "Last Name": item[2]}
+            first = None if item[1] == 'None' else item[1]
+            second = None if item[2] == 'None' else item[2]
+            registrations[int(item[0])] = {"First Name": first, "Last Name": second}
+        tournament = file_path.replace("_registrations.csv","").replace("-"," ")
 
     return registrations, tournament
 
@@ -122,7 +125,7 @@ def main_menu(registrations, tournament):
         elif menu_option == 2:
             registrations, saved = deregister_menu(registrations)
         elif menu_option == 3:
-            view_participants()
+            view_participants(registrations)
         elif menu_option == 4:
             saved = save_menu(registrations, tournament)
         elif menu_option == 5:
@@ -195,13 +198,16 @@ def deregister_menu(registrations):
     return registrations, False
 
 
-def view_participants():
+def view_participants(registrations):
     os.system(clear_term)
     print(statements[5])
+    reg_list = convert_dict_to_list(registrations)
+    print(reg_list)
+    
 
 
 def convert_dict_to_list(registrations):
-    to_write = [
+    registration_list = [
         str(key)
         + ","
         + str(registrations[key]["First Name"])
@@ -209,7 +215,7 @@ def convert_dict_to_list(registrations):
         + str(registrations[key]["Last Name"])
         for key in registrations.keys()
     ]
-    return to_write
+    return registration_list
 
 
 def save_menu(registrations, tournament):
