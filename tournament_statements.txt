@@ -46,3 +46,4 @@
       3. Sort by First Name
       4. Sort by Last Name
       5. Sort by Slot
+      6. Back to Main Menu
