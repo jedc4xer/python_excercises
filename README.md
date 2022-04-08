@@ -8,4 +8,6 @@ Current Commits include:
 - String Manipulation > 05E-string-manipulation.ipynb
 - Initial Word Guess Game > word_guess.py
 - Revised Word Guess Game > refined_word_guess.py
+- Food Exercises
+- Food JSON file
 - associated txt files
