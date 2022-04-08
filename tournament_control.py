@@ -201,8 +201,12 @@ def deregister_menu(registrations):
 def view_participants(registrations):
     os.system(clear_term)
     print(statements[5])
+    print(statements[11])
+    print("******* CURRENTLY IN DEVELOPMENT **********")
     reg_list = convert_dict_to_list(registrations)
-    print(reg_list)
+    sorted_reg = sorted(reg_list, key=lambda x: x[2])
+    print("\n".join(_[0] + ": " + [1] + " " + _[2] for _ in sorted_reg))
+    time.sleep()
     
 
 
