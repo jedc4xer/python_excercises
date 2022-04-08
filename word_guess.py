@@ -27,6 +27,7 @@ file = requests.get(
 # Prepare file for use and display filtering choices used
 words = set(file.text.replace("\n", "").split("\r"))
 limited_words = [_ for _ in words if len(_) >= 7]
+
 print(
     f'{"{:,}".format(len(words))} words found - Limiting to {"{:,}".format(len(limited_words))} words with 7 or more characters.\n\n'
 )
