@@ -15,20 +15,21 @@ def get_statements():
 
 def get_tournament_info():
     print(statements[0])
-    
-    possible_files = [_ for _ in os.listdir() if "registrations.csv" in _ ]
+
+    possible_files = [_ for _ in os.listdir() if "registrations.csv" in _]
     allow_choosing = True if len(possible_files) > 0 else False
-    
-    print(statements[9]) if allow_choosing else statements[10]
-    
+
+    print(statements[9]) if allow_choosing else print(statements[10])
+
     passed = False
     while not passed:
-        
+
         if allow_choosing:
             task = input("      Choose an option: >> ")
             passed = check_input(task, "number", 2)
         else:
-            task == '1'
+            task = "1"
+            passed = True
 
     if task == "1":
         # Get name of tournament
@@ -48,24 +49,24 @@ def get_tournament_info():
             for slot in range(1, num_slots + 1)
         }
     else:
-        print('      File Options')
-        for i,item in enumerate(possible_files):
-            print(f'      {i+1}. {item}')
+        print("      File Options")
+        for i, item in enumerate(possible_files):
+            print(f"      {i+1}. {item}")
         passed = False
         while not passed:
             picked_file = input("      Choose which file to load: >> ")
-            passed = check_input(picked_file, 'number', len(possible_files))
+            passed = check_input(picked_file, "number", len(possible_files))
         file_path = possible_files[int(picked_file)]
-        
-        with open(f'{file_path}','r') as file:
+
+        with open(f"{file_path}", "r") as file:
             data = file.read().split("\n")
             file.close()
 
         new_data = [_.split(",") for _ in data][1:]
         registrations = {}
-        for i,item in enumerate(new_data):
-            registrations[int(item[0])] = {'First Name': item[1], 'Last Name': item[2]}
-            
+        for i, item in enumerate(new_data):
+            registrations[int(item[0])] = {"First Name": item[1], "Last Name": item[2]}
+
         return registrations, tournament
 
 
@@ -215,7 +216,7 @@ def save_menu(registrations, tournament):
     os.system(clear_term)
     print(statements[6])
     to_write = convert_dict_to_list(registrations)
-    to_write.insert(0,"slot,First Name,Last Name")
+    to_write.insert(0, "slot,First Name,Last Name")
     tournament = tournament.replace(" ", "-")
     with open(f"{tournament}_registrations.csv", "w") as file:
         file.write("\n".join(to_write))

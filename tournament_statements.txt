@@ -40,4 +40,4 @@
       Ensure that a registrations file is in the active
       directory and start this program again.
       
-      Otherwise\\, create a new tournament.
+      Otherwise create a new tournament.
