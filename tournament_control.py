@@ -67,7 +67,7 @@ def get_tournament_info():
         for i, item in enumerate(new_data):
             registrations[int(item[0])] = {"First Name": item[1], "Last Name": item[2]}
 
-        return registrations, tournament
+    return registrations, tournament
 
 
 def check_input(input_string, requirement, limit):
