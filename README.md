@@ -8,5 +8,4 @@ Current Commits include:
 - String Manipulation > 05E-string-manipulation.ipynb
 - Initial Word Guess Game > word_guess.py
 - Revised Word Guess Game > refined_word_guess.py
-- Tournament Manager > tournament_control.py
 - associated txt files
