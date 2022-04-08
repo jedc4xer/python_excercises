@@ -6,24 +6,23 @@ import string
 clear_term = "cls||clear"
 os.system(clear_term)
 
-
+# Get text print blocks from template file
 def get_statements():
     path = "https://raw.githubusercontent.com/jedc4xer/python_exercises/main/tournament_statements.txt"
     statements = requests.get(path).text.split(",")
     return statements
 
-
+# Determine if new tournament or loading existing
 def get_tournament_info():
     print(statements[0])
-
+    
+    # Check for registration files in directory
     possible_files = [_ for _ in os.listdir() if "registrations.csv" in _]
     allow_choosing = True if len(possible_files) > 0 else False
-
     print(statements[9]) if allow_choosing else print(statements[10])
 
     passed = False
     while not passed:
-
         if allow_choosing:
             task = input("      Choose an option: >> ")
             passed = check_input(task, "number", 2)
@@ -197,16 +196,65 @@ def deregister_menu(registrations):
 
     return registrations, False
 
+def sort_participants(reg_list,sort_parameter, sort_direction):
+    sorted_reg = sorted(
+        reg_list, key=lambda x: x[sort_parameter], reverse = sort_direction
+    )
+                
+    sorted_reg_string = (
+        "\n".join(str(_[0]) + ": " + _[1] + " " + _[2] for _ in sorted_reg)
+    )
+    sorted_reg_string = sorted_reg_string.replace("None None","[empty]")
+    print(sorted_reg_string)
+    
+    passed = False
+    while not passed:
+        passed = True if input("Go Back: (y/n) >> ").lower() == 'y' else False
+    return
 
 def view_participants(registrations):
-    os.system(clear_term)
-    print(statements[5])
-    print(statements[11])
-    print("******* CURRENTLY IN DEVELOPMENT **********")
-    reg_list = convert_dict_to_list(registrations)
-    sorted_reg = sorted(reg_list, key=lambda x: x[2])
-    print("\n".join(_[0] + ": " + [1] + " " + _[2] for _ in sorted_reg))
-    time.sleep()
+    errors = None
+    outer_passed = False
+    while not outer_passed:
+        os.system(clear_term)
+        print(statements[5], statements[11], errors,'\n')
+        print("******* CURRENTLY IN DEVELOPMENT **********")
+        errors = None
+        reverse_sort = False
+        passed = False
+        while not passed:
+            option = input('Choose an option: (include "a" for ascending)>> ')
+            
+            # Check for directional adjustment
+            if 'a' in option.lower():
+                option = option.replace('a','')
+                reverse_sort = True
+                
+            passed = check_input(option, 'number', 6)
+        option = int(option)
+        
+        if option == 1:
+            print('This option has not yet been coded')
+        elif option == 2:
+            print('This option has not yet been coded')
+        elif option == 3:
+            reg_list = convert_dict_to_list(registrations)
+            reg_list = [[int(_.split(",")[0]),_.split(",")[1],_.split(",")[2]] for _ in reg_list]
+            sort_participants(reg_list, 1, reverse_sort)
+        elif option == 4:
+            reg_list = convert_dict_to_list(registrations)
+            reg_list = [[int(_.split(",")[0]),_.split(",")[1],_.split(",")[2]] for _ in reg_list]
+            sort_participants(reg_list, 2, reverse_sort)
+        elif option == 5:
+            reg_list = convert_dict_to_list(registrations)
+            reg_list = [[int(_.split(",")[0]),_.split(",")[1],_.split(",")[2]] for _ in reg_list]
+            sort_participants(reg_list, 0, reverse_sort)
+        elif option == 6:
+            return
+        else:
+            errors = "You did not pick a valid option."
+
+
     
 
 
